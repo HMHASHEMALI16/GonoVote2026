@@ -382,6 +382,7 @@
     </footer>
 
     <script>
+        // Initialize Icons
         lucide.createIcons();
         const ballotImageUrl = "GonoVoteBallot.jpg"; 
 
@@ -398,26 +399,25 @@
                 size: "১৬১ কেবি", 
                 icon: "file-check", 
                 link: "July_Jatiya_Sanad_Bastobayan_Adesh.pdf", 
-                desc: "জুলাই জাতীয় সনদ বাস্তবায়নের প্রশাসনিক নির্দেশাবলী এবং আইনি আদেশ।" 
+                desc: "জুলাই জাতীয় সনদ বাস্তবায়নের প্রশাসনিক নির্দেশাবলী এবং আইনি আদেশ।" 
             },
             { 
                 title: "গণভোট অধ্যাদেশ ২০২৫", 
                 size: "২২৭ কেবি", 
                 icon: "shield-check", 
                 link: "Gonovoter_Bidhan_Pronoyon_Kolpe_Oddhadesh.pdf", 
-                desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি এবং বিধিমালা সংক্রান্ত চূড়ান্ত সরকারি অধ্যাদেশ।" 
+                desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি এবং বিধিমালা সংক্রান্ত চূড়ান্ত সরকারি অধ্যাদেশ।" 
             },
-            
             { 
                 title: "নির্বাচন কমিশন পরিপত্র", 
                 size: "৮০৬ কেবি", 
                 icon: "pen-tool", 
                 link: "Gonovote_Songkranto_Poripotro.pdf", 
-                desc: "গণভোট সংক্রান্ত নির্বাচন কমিশনের বিশেষ নির্দেশনা ও মাঠ পর্যায়ের কর্মকর্তাদের জন্য গাইডলাইন।" 
+                desc: "গণভোট সংক্রান্ত নির্বাচন কমিশনের বিশেষ নির্দেশনা ও মাঠ পর্যায়ের কর্মকর্তাদের জন্য গাইডলাইন।" 
             },
             { 
                 title: "গণভোট ব্যালট পেপার", 
-                size: "৪.২৬৫ এমবি, 
+                size: "৪.২৬৫ এমবি", // Fixed missing quote here
                 icon: "image", 
                 link: "GonoVoteBallot.jpg", 
                 desc: "ভোটারদের সুবিধার্থে গণভোটের গোলাপী রঙের নমুনা ব্যালট পেপারের চিত্র।" 
@@ -427,9 +427,8 @@
                 size: "৫৯৮ কেবি", 
                 icon: "megaphone", 
                 link: "leaflet.pdf", 
-                desc: "জনসচেতনতামূলক ডিজিটাল লিফলেট যেখানে সংস্কারের মূল পয়েন্টগুলো সংক্ষেপে তুলে ধরা হয়েছে।" 
+                desc: "জনসচেতনতামূলক ডিজিটাল লিফলেট যেখানে সংস্কারের মূল পয়েন্টগুলো সংক্ষেপে তুলে ধরা হয়েছে।" 
             }
-            
         ];
 
         const grid = document.getElementById('fileGrid');
@@ -492,13 +491,11 @@
                 document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
             }
             
-            tick(); // Initial call
+            tick(); 
             setInterval(tick, 1000);
         }
         
-        window.onload = updateCountdown;
+        window.addEventListener('load', updateCountdown);
     </script>
 </body>
 </html>
-
-
