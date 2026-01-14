@@ -1,6 +1,18 @@
-# Gono Vote 2026
-## Visit with [hmhashemali16.github.io/GonoVote2026](https://hmhashemali16.github.io/GonoVote2026/)
+# 🗳️ Gono Vote 2026
 
-Independent digital archive for the 2026 Bangladesh Referendum, centralizing reform ordinances and the July National Charter for public transparency and democratic awareness.
+### [🌐 Visit the Digital Archive](https://hmhashemali16.github.io/GonoVote2026/)
+**Direct Link:** `hmhashemali16.github.io/GonoVote2026`
 
-⚠️ Disclaimer: This is non-affiliated initiative for informational purposes; not an official government website.
+---
+
+### 📖 Mission & Purpose
+Independent digital archive for the **2026 Bangladesh Referendum**, centralizing:
+* **Reform Ordinances**
+* **The July National Charter**
+
+*Dedicated to public transparency and democratic awareness.*
+
+---
+
+> [!CAUTION]
+> **Disclaimer:** This is a non-affiliated initiative for informational purposes; not an official government website.
