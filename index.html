@@ -386,12 +386,48 @@
         const ballotImageUrl = "GonoVoteBallot.jpg"; 
 
         const files = [
-            { title: "গণভোট সচেতনতা লিফলেট", size: "৮০০ কেবি", icon: "megaphone", link: "leaflet.pdf", desc: "গণভোটের গুরুত্ব এবং 'হ্যাঁ' ভোটের সুফল সম্পর্কে সরকারি প্রচারপত্র।" },
-            { title: "নির্বাচন কমিশন পরিপত্র-১", size: "১.৫ এমবি", icon: "pen-tool", link: "Gonovote_Songkranto_Poripotro.pdf", desc: "ভোটের তারিখ, সময় ও কর্মকর্তাদের জন্য নির্দেশাবলী।" },
-            { title: "জুলাই জাতীয় সনদ ২০২৫", size: "১.৮ এমবি", icon: "scroll", link: "July_Jatiya_Sanad_2025.pdf", desc: "রাষ্ট্রের সংস্কার ও চরিত্র বদলের রাজনৈতিক অঙ্গীকারনামা।" },
-            { title: "গণভোট অধ্যাদেশ ২০২৫", size: "১.২ এমবি", icon: "shield-check", link: "Gonovoter_Bidhan_Pronoyon_Kolpe_Oddhadesh.pdf", desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি সংবলিত চূড়ান্ত অধ্যাদেশ।" },
-            { title: "বাস্তবায়ন আদেশ ২০২৫ (নং ০১)", size: "৯০০ কেবি", icon: "file-check", link: "July_Jatiya_Sanad_Bastobayan_Adesh.pdf", desc: "সংবিধান সংস্কার পরিষদ (CRC) গঠন ও আইনি নির্দেশনা।" },
-            { title: "ভোটার নির্দেশিকা ও আচরণবিধি", size: "১.১ এমবি", icon: "user-check", link: "Voter_Guide_2026.pdf", desc: "সুষ্ঠুভাবে ভোট প্রদানের নিয়মাবলী ও ভোটারদের করণীয় নির্দেশিকা।" }
+            { 
+                title: "জুলাই জাতীয় সনদ ২০২৫", 
+                size: "১.৮ এমবি", 
+                icon: "scroll", 
+                link: "July_Jatiya_Sanad_2025.pdf", 
+                desc: "রাষ্ট্রের সংস্কার ও চরিত্র বদলের মূল অঙ্গীকারনামা এবং ভবিষ্যতের রূপরেখা।" 
+            },
+            { 
+                title: "গণভোট অধ্যাদেশ ২০২৫", 
+                size: "১.২ এমবি", 
+                icon: "shield-check", 
+                link: "Gonovoter_Bidhan_Pronoyon_Kolpe_Oddhadesh.pdf", 
+                desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি এবং বিধিমালা সংক্রান্ত চূড়ান্ত সরকারি অধ্যাদেশ।" 
+            },
+            { 
+                title: "বাস্তবায়ন আদেশ ২০২৫", 
+                size: "৯০০ কেবি", 
+                icon: "file-check", 
+                link: "July_Jatiya_Sanad_Bastobayan_Adesh.pdf", 
+                desc: "জুলাই জাতীয় সনদ বাস্তবায়নের প্রশাসনিক নির্দেশাবলী এবং আইনি আদেশ।" 
+            },
+            { 
+                title: "নির্বাচন কমিশন পরিপত্র", 
+                size: "১.৫ এমবি", 
+                icon: "pen-tool", 
+                link: "Gonovote_Songkranto_Poripotro.pdf", 
+                desc: "গণভোট সংক্রান্ত নির্বাচন কমিশনের বিশেষ নির্দেশনা ও মাঠ পর্যায়ের কর্মকর্তাদের জন্য গাইডলাইন।" 
+            },
+            { 
+                title: "প্রচারণা লিফলেট (PDF)", 
+                size: "৮০০ কেবি", 
+                icon: "megaphone", 
+                link: "leaflet.pdf", 
+                desc: "জনসচেতনতামূলক ডিজিটাল লিফলেট যেখানে সংস্কারের মূল পয়েন্টগুলো সংক্ষেপে তুলে ধরা হয়েছে।" 
+            },
+            { 
+                title: "নমুনা ব্যালট পেপার", 
+                size: "৫০০ কেবি", 
+                icon: "image", 
+                link: "GonoVoteBallot.jpg", 
+                desc: "ভোটারদের সুবিধার্থে গণভোটের গোলাপী রঙের নমুনা ব্যালট পেপারের চিত্র।" 
+            }
         ];
 
         const grid = document.getElementById('fileGrid');
@@ -404,11 +440,11 @@
                         <div>
                             <h3 class="card-title">${file.title}</h3>
                             <p class="card-description">${file.desc}</p>
-                            <p style="font-size: 0.85rem; font-weight: 700; opacity: 0.7; color: var(--primary);">PDF | ${file.size}</p>
+                            <p style="font-size: 0.85rem; font-weight: 700; opacity: 0.7; color: var(--primary);">FILE | ${file.size}</p>
                         </div>
                         <div class="btn-group">
-                            <a href="pdf/${file.link}" target="_blank" class="btn btn-preview">পড়ুন</a>
-                            <a href="pdf/${file.link}" download class="btn btn-download">সেভ করুন</a>
+                            <a href="${file.link}" target="_blank" class="btn btn-preview">পড়ুন</a>
+                            <a href="${file.link}" download class="btn btn-download">সেভ করুন</a>
                         </div>
                     </div>`;
             });
@@ -462,3 +498,4 @@
     </script>
 </body>
 </html>
+
