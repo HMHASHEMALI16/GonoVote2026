@@ -381,51 +381,62 @@
         </div>
 </section>
 
-        
-     <style>
-    .music-card {
-      background: #fff; width: 100%; max-width: 450px;
-      border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      overflow: hidden; transition: transform 0.3s;
-    }
-    .music-card:hover { transform: translateY(-5px); }
-    
-    .lyric-btn {
-      width: 100%; padding: 12px; margin-top: 15px;
-      background: #111; color: #fff; border: none;
-      border-radius: 10px; font-weight: 600; cursor: pointer;
-      display: flex; justify-content: center; gap: 8px;
-    }
-    .lyric-btn:hover { background: #333; }
+      <style>
+  /* Container to center the card on the page */
+  .main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
 
-    /* পপআপ স্টাইল */
-    .popup-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
-      display: none; justify-content: center; align-items: center; z-index: 9999;
-      padding: 20px;
-    }
-    .popup-box {
-      background: #fff; width: 100%; max-width: 400px; max-height: 70vh;
-      border-radius: 16px; display: flex; flex-direction: column;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.2); animation: popUp 0.3s ease;
-    }
-    .popup-header {
-      padding: 15px; border-bottom: 1px solid #eee;
-      display: flex; justify-content: space-between; align-items: center;
-      font-weight: bold;
-    }
-    .popup-body {
-      padding: 20px; overflow-y: auto; text-align: center;
-      line-height: 1.6; color: #444; white-space: pre-line;
-    }
-    .close-icon {
-      background: #f1f1f1; border: none; width: 30px; height: 30px;
-      border-radius: 50%; cursor: pointer; font-size: 16px;
-    }
-    @keyframes popUp { from {transform: scale(0.9); opacity: 0;} to {transform: scale(1); opacity: 1;} }
-  </style>
+  .music-card {
+    background: #fff; width: 100%; max-width: 450px;
+    border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden; transition: transform 0.3s;
+    text-align: center; /* Centers the text inside the card */
+  }
+  .music-card:hover { transform: translateY(-5px); }
+  
+  .lyric-btn {
+    width: 100%; padding: 12px; margin-top: 15px;
+    background: #111; color: #fff; border: none;
+    border-radius: 10px; font-weight: 600; cursor: pointer;
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+  }
+  .lyric-btn:hover { background: #333; }
 
+  /* Popup Styles */
+  .popup-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+    display: none; justify-content: center; align-items: center; z-index: 9999;
+    padding: 20px;
+  }
+  .popup-box {
+    background: #fff; width: 100%; max-width: 400px; max-height: 70vh;
+    border-radius: 16px; display: flex; flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2); animation: popUp 0.3s ease;
+  }
+  .popup-header {
+    padding: 15px; border-bottom: 1px solid #eee;
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: bold;
+  }
+  .popup-body {
+    padding: 20px; overflow-y: auto; 
+    text-align: center; /* Centers the lyrics */
+    line-height: 1.6; color: #444; white-space: pre-line;
+  }
+  .close-icon {
+    background: #f1f1f1; border: none; width: 30px; height: 30px;
+    border-radius: 50%; cursor: pointer; font-size: 16px;
+  }
+  @keyframes popUp { from {transform: scale(0.9); opacity: 0;} to {transform: scale(1); opacity: 1;} }
+</style>
+
+<div class="main-wrapper">
   <figure class="music-card">
     <div style="background: #000;">
       <video width="100%" controls style="display: block;">
@@ -445,42 +456,47 @@
       </button>
     </figcaption>
   </figure>
+</div>
 
-  <div id="lyricModal" class="popup-overlay" onclick="if(event.target === this) this.style.display='none'">
-    <div class="popup-box">
-      <div class="popup-header">
-        <span>গানের কথা</span>
-        <button class="close-icon" onclick="document.getElementById('lyricModal').style.display='none'">✕</button>
-      </div>
-      <div class="popup-body">
-        গান: হ্যাঁ বলো (জুলাইয়ের শপথ)
-​(শুরু)
-শুনো ভাই...
-এইবার ভোট মানে ভয় না
-এইবার ভোট মানে জয় না
-এইবার ভোট মানে শপথ
-জুলাইয়ের সনদে হ্যাঁ বলো।
-​(কোরাস)
-হ্যাঁ বলো, হ্যাঁ বলো
-জুলাইয়ের শপথে—
-হ্যাঁ বলো, হ্যাঁ বলো
-মানুষের ক্ষমতায়—
-হ্যাঁ বলো!
-​(ভার্স)
-হ্যাঁ মানে আলো, হ্যাঁ মানে মুক্তি
-হ্যাঁ মানে নতুন রাষ্ট্রের নীতি।
-ভয় আর মিথ্যা যাবে হারিয়ে
-রাস্তায় উঠুক সবার কণ্ঠে—
-হ্যাঁ বলো, হ্যাঁ বলো!
-​(আউট্রো)
-জুলাই সনদ আমাদের বলো
-জনতার হাতে ফিরুক আলো—
-হ্যাঁ বলো, হ্যাঁ বলো!
-হ্যাঁ বলো, হ্যাঁ বলো!
-হ্যাঁ বলো, হ্যাঁ বলো!
-      </div>
+<div id="lyricModal" class="popup-overlay" onclick="if(event.target === this) this.style.display='none'">
+  <div class="popup-box">
+    <div class="popup-header">
+      <span>গানের কথা</span>
+      <button class="close-icon" onclick="document.getElementById('lyricModal').style.display='none'">✕</button>
+    </div>
+    <div class="popup-body">
+      <strong>গান: হ্যাঁ বলো (জুলাইয়ের শপথ)</strong>
+
+      (শুরু)
+      শুনো ভাই...
+      এইবার ভোট মানে ভয় না
+      এইবার ভোট মানে জয় না
+      এইবার ভোট মানে শপথ
+      জুলাইয়ের সনদে হ্যাঁ বলো।
+
+      (কোরাস)
+      হ্যাঁ বলো, হ্যাঁ বলো
+      জুলাইয়ের শপথে—
+      হ্যাঁ বলো, হ্যাঁ বলো
+      মানুষের ক্ষমতায়—
+      হ্যাঁ বলো!
+
+      (ভার্স)
+      হ্যাঁ মানে আলো, হ্যাঁ মানে মুক্তি
+      হ্যাঁ মানে নতুন রাষ্ট্রের নীতি।
+      ভয় আর মিথ্যা যাবে হারিয়ে
+      রাস্তায় উঠুক সবার কণ্ঠে—
+      হ্যাঁ বলো, হ্যাঁ বলো!
+
+      (আউট্রো)
+      জুলাই সনদ আমাদের বলো
+      জনতার হাতে ফিরুক আলো—
+      হ্যাঁ বলো, হ্যাঁ বলো!
+      হ্যাঁ বলো, হ্যাঁ বলো!
+      হ্যাঁ বলো, হ্যাঁ বলো!
     </div>
   </div>
+</div>
 
 
         
@@ -655,6 +671,7 @@
     </script>
 </body>
 </html>
+
 
 
 
