@@ -593,7 +593,7 @@
         <p>❤️</p>
     </footer>
 
-  <script>
+ <script>
     // Initialize Icons
     lucide.createIcons();
     const ballotImageUrl = "GonoVoteBallot.jpg"; 
@@ -669,27 +669,29 @@
     }
     renderFiles();
 
-    // স্ক্রল এবং হাইলাইট ফাংশন
+    // স্ক্রল এবং লাল রঙের ফ্ল্যাশ হাইলাইট ফাংশন
     function scrollToSanad() {
         const sanadCard = document.getElementById('sanadCard');
         if (sanadCard) {
-            // কার্ডের কাছে স্ক্রল করা
+            // কার্ডের কাছে স্মুথলি স্ক্রল করা
             sanadCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // হাইলাইট ইফেক্ট দেওয়া
-            sanadCard.style.transition = 'all 0.5s ease';
-            sanadCard.style.transform = 'scale(1.05)';
-            sanadCard.style.borderColor = 'var(--primary)';
-            sanadCard.style.boxShadow = '0 0 40px var(--glow)';
-            sanadCard.style.backgroundColor = 'var(--bg)'; // হালকা ব্যাকগ্রাউন্ড পরিবর্তন
+            // লাল রঙের ফ্ল্যাশ ইফেক্ট দেওয়া
+            sanadCard.style.transition = 'all 0.4s ease-in-out';
+            sanadCard.style.transform = 'scale(1.03)';
+            
+            // লাল বর্ডার এবং ব্যাকগ্রাউন্ড সেট করা (Red Flash)
+            sanadCard.style.borderColor = '#dc2626'; // গাঢ় লাল বর্ডার
+            sanadCard.style.backgroundColor = 'rgba(220, 38, 38, 0.15)'; // হালকা লাল ব্যাকগ্রাউন্ড
+            sanadCard.style.boxShadow = '0 0 35px rgba(220, 38, 38, 0.5)'; // লাল গ্লো
 
-            // ২ সেকেন্ড পর হাইলাইট সরিয়ে আগের অবস্থায় ফিরে আসা
+            // ১.৫ সেকেন্ড পর ইফেক্ট সরিয়ে আগের অবস্থায় ফিরে আসা
             setTimeout(() => {
-                sanadCard.style.transform = 'scale(1)';
-                sanadCard.style.borderColor = ''; // ডিফল্টে ফিরে যাবে
-                sanadCard.style.boxShadow = '';
+                sanadCard.style.transform = '';
+                sanadCard.style.borderColor = ''; 
                 sanadCard.style.backgroundColor = '';
-            }, 2000);
+                sanadCard.style.boxShadow = '';
+            }, 1500);
         }
     }
 
@@ -739,6 +741,7 @@
 </script>
 </body>
 </html>
+
 
 
 
