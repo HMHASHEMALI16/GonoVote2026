@@ -399,50 +399,77 @@
     </div>
 </div>
 
-        
-        
-<section style="font-family: system-ui, sans-serif; display: flex; justify-content: center; align-items: center; padding: 20px;">
+   <section style="font-family: var(--font-sans); display: flex; justify-content: center; align-items: center; padding: 20px;">
 
   <style>
     .music-card {
-      background: #fff; width: 100%; max-width: 450px;
-      border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      overflow: hidden; transition: transform 0.3s;
+      background: var(--card-bg); /* ডায়নামিক ব্যাকগ্রাউন্ড */
+      width: 100%; max-width: 450px;
+      border-radius: 16px; 
+      box-shadow: 0 10px 25px var(--glow); /* গ্লো ভেরিয়েবল */
+      border: 1px solid var(--border); /* বর্ডার যোগ করা হয়েছে */
+      overflow: hidden; transition: transform 0.3s, box-shadow 0.3s;
     }
-    .music-card:hover { transform: translateY(-5px); }
+    .music-card:hover { 
+        transform: translateY(-5px); 
+        box-shadow: 0 15px 35px var(--glow);
+        border-color: var(--primary);
+    }
     
     .lyric-btn {
       width: 100%; padding: 12px; margin-top: 15px;
-      background: #111; color: #fff; border: none;
+      background: var(--text-main); /* টেক্সটের বিপরীত কালার */
+      color: var(--card-bg); /* ব্যাকগ্রাউন্ডের কালার */
+      border: 1px solid var(--border);
       border-radius: 10px; font-weight: 600; cursor: pointer;
       display: flex; justify-content: center; gap: 8px;
+      transition: all 0.3s ease;
     }
-    .lyric-btn:hover { background: #333; }
+    .lyric-btn:hover { 
+        background: var(--primary); 
+        color: white;
+        border-color: var(--primary);
+    }
 
     /* পপআপ স্টাইল */
     .popup-overlay {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+      background: var(--modal-overlay); /* ভেরিয়েবল ব্যবহার */
+      backdrop-filter: blur(5px);
       display: none; justify-content: center; align-items: center; z-index: 9999;
       padding: 20px;
     }
     .popup-box {
-      background: #fff; width: 100%; max-width: 400px; max-height: 70vh;
+      background: var(--card-bg); /* ডায়নামিক */
+      width: 100%; max-width: 400px; max-height: 70vh;
       border-radius: 16px; display: flex; flex-direction: column;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.2); animation: popUp 0.3s ease;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+      animation: popUp 0.3s ease;
+      border: 1px solid var(--border);
     }
     .popup-header {
-      padding: 15px; border-bottom: 1px solid #eee;
+      padding: 15px; border-bottom: 1px solid var(--border);
       display: flex; justify-content: space-between; align-items: center;
       font-weight: bold;
+      color: var(--text-main);
     }
     .popup-body {
       padding: 20px; overflow-y: auto; text-align: center;
-      line-height: 1.6; color: #444; white-space: pre-line;
+      line-height: 1.8; color: var(--text-main); white-space: pre-line;
+      font-family: var(--font-serif);
     }
     .close-icon {
-      background: #f1f1f1; border: none; width: 30px; height: 30px;
+      background: var(--bg); 
+      color: var(--text-main);
+      border: 1px solid var(--border); 
+      width: 30px; height: 30px;
       border-radius: 50%; cursor: pointer; font-size: 16px;
+      transition: 0.3s;
+    }
+    .close-icon:hover {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
     }
     @keyframes popUp { from {transform: scale(0.9); opacity: 0;} to {transform: scale(1); opacity: 1;} }
   </style>
@@ -455,11 +482,11 @@
     </div>
 
     <figcaption style="padding: 20px;">
-      <div style="font-size: 12px; color: #e11d48; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">
+      <div style="font-size: 12px; color: var(--primary); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px;">
         Music Video
       </div>
-      <h3 style="margin: 0 0 5px 0; color: #222;">হ্যাঁ বলো জুলাইয়ের শপথে</h3>
-      <p style="margin: 0; color: #666; font-size: 14px;">তৈরি করেছেন: জোবায়ের হোসাইন</p>
+      <h3 style="margin: 0 0 5px 0; color: var(--text-main);">হ্যাঁ বলো জুলাইয়ের শপথে</h3>
+      <p style="margin: 0; color: var(--text-muted); font-size: 14px; font-family: var(--font-serif);">তৈরি করেছেন: জোবায়ের হোসাইন</p>
 
       <button class="lyric-btn" onclick="document.getElementById('lyricModal').style.display='flex'">
         <span>📝</span> লিরিক্স দেখুন
@@ -474,24 +501,24 @@
         <button class="close-icon" onclick="document.getElementById('lyricModal').style.display='none'">✕</button>
       </div>
       <div class="popup-body">
-        গান: হ্যাঁ বলো (জুলাইয়ের শপথ)
+        গান: হ্যাঁ বলো (জুলাইয়ের শপথ)
 ​(শুরু)
 শুনো ভাই...
-এইবার ভোট মানে ভয় না
-এইবার ভোট মানে জয় না
+এইবার ভোট মানে ভয় না
+এইবার ভোট মানে জয় না
 এইবার ভোট মানে শপথ
-জুলাইয়ের সনদে হ্যাঁ বলো।
+জুলাইয়ের সনদে হ্যাঁ বলো।
 ​(কোরাস)
 হ্যাঁ বলো, হ্যাঁ বলো
-জুলাইয়ের শপথে—
+জুলাইয়ের শপথে—
 হ্যাঁ বলো, হ্যাঁ বলো
-মানুষের ক্ষমতায়—
+মানুষের ক্ষমতায়—
 হ্যাঁ বলো!
 ​(ভার্স)
 হ্যাঁ মানে আলো, হ্যাঁ মানে মুক্তি
 হ্যাঁ মানে নতুন রাষ্ট্রের নীতি।
-ভয় আর মিথ্যা যাবে হারিয়ে
-রাস্তায় উঠুক সবার কণ্ঠে—
+ভয় আর মিথ্যা যাবে হারিয়ে
+রাস্তায় উঠুক সবার কণ্ঠে—
 হ্যাঁ বলো, হ্যাঁ বলো!
 ​(আউট্রো)
 জুলাই সনদ আমাদের বলো
@@ -754,6 +781,7 @@
 </script>
 </body>
 </html>
+
 
 
 
