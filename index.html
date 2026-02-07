@@ -435,21 +435,21 @@
 </section>
         
         <!-- কি ও কেন সেকশন -->
-     <div class="container">
+    <div class="container">
     <div class="qa-container">
-        <div class="qa-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="qa-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 30px; border-radius: 24px; background: var(--card-bg); border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: transform 0.3s ease;">
             <div>
-                <h3>গণভোট কী?</h3>
-                <ul>
-                    <li><span>১</span> গণভোটও এক ধরনের ভোট বা নির্বাচন।</li>
-                    <li><span>২</span> অন্যান্য নির্বাচনে প্রার্থী থাকে, কিন্তু গণভোটে কোনো প্রার্থী নেই।</li>
-                    <li><span>৩</span> প্রস্তাবের পক্ষে অথবা বিপক্ষে “হ্যাঁ” অথবা “না” ভোট প্রদানের পদ্ধতি।</li>
-                    <li><span>৪</span> “হ্যাঁ” বিজয়ী হলে রাষ্ট্র পরিচালনার পদ্ধতিতে গুরুত্বপূর্ণ পরিবর্তন ঘটে।</li>
+                <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 20px; border-left: 5px solid var(--primary); padding-left: 15px; font-weight: 800;">গণভোট কী?</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px; font-family: var(--font-serif);"><span style="background: var(--primary); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 3px;">১</span> গণভোটও এক ধরনের ভোট বা নির্বাচন।</li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px; font-family: var(--font-serif);"><span style="background: var(--primary); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 3px;">২</span> অন্যান্য নির্বাচনে প্রার্থী থাকে, কিন্তু গণভোটে কোনো প্রার্থী নেই।</li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px; font-family: var(--font-serif);"><span style="background: var(--primary); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 3px;">৩</span> প্রস্তাবের পক্ষে অথবা বিপক্ষে “হ্যাঁ” অথবা “না” ভোট প্রদানের পদ্ধতি।</li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px; font-family: var(--font-serif);"><span style="background: var(--primary); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 3px;">৪</span> “হ্যাঁ” বিজয়ী হলে রাষ্ট্র পরিচালনার পদ্ধতিতে গুরুত্বপূর্ণ পরিবর্তন ঘটে।</li>
                 </ul>
             </div>
             
             <div style="margin-top: 25px;">
-                <div class="ballot-action" onclick="openBallot()" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #ffebf5; border: 2px solid #ff69b4; color: #d63384; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 0.95rem; width: 100%; transition: all 0.3s ease;">
+                <div class="ballot-action" onclick="openBallot()" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #fff0f6; border: 2px solid #ff69b4; color: #333; padding: 12px 20px; border-radius: 50px; cursor: pointer; font-weight: 700; font-size: 0.95rem; width: 100%; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                     <div style="width: 12px; height: 12px; background: #ff69b4; border-radius: 50%; border: 2px solid white;"></div>
                     <span>ব্যালট: গোলাপি রঙের (দেখুন)</span>
                     <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
@@ -457,18 +457,18 @@
             </div>
         </div>
 
-        <div class="qa-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="qa-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 30px; border-radius: 24px; background: var(--card-bg); border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: transform 0.3s ease;">
             <div>
-                <h3>গণভোট ২০২৬ কেন হচ্ছে?</h3>
-                <ul>
-                    <li><span>১</span> ২০২৪ সালের ৫ই আগস্টের গণঅভ্যুত্থানের আকাঙ্ক্ষা পূরণের রূপরেখা।</li>
-                    <li><span>২</span> গণঅভ্যুত্থানের আকাঙ্ক্ষায় প্রণীত “জুলাই জাতীয় সনদ ২০২৫” বাস্তবায়নের পদ্ধতি।</li>
-                    <li><span>৩</span> গণভোটে "হ্যাঁ" জয়ী হলে যে ৩০টি প্রস্তাব অবশ্যই বাস্তবায়িত হবে তা স্পষ্টভাবে উল্লেখ রয়েছে।</li>
+                <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 20px; border-left: 5px solid var(--primary); padding-left: 15px; font-weight: 800;">গণভোট ২০২৬ কেন হচ্ছে?</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px; font-family: var(--font-serif);"><span style="background: var(--primary); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 3px;">১</span> ২০২৪ সালের ৫ই আগস্টের গণঅভ্যুত্থানের আকাঙ্ক্ষা পূরণের রূপরেখা।</li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px; font-family: var(--font-serif);"><span style="background: var(--primary); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 3px;">২</span> গণঅভ্যুত্থানের আকাঙ্ক্ষায় প্রণীত “জুলাই জাতীয় সনদ ২০২৫” বাস্তবায়নের পদ্ধতি।</li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px; font-family: var(--font-serif);"><span style="background: var(--primary); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; flex-shrink: 0; margin-top: 3px;">৩</span> গণভোটে "হ্যাঁ" জয়ী হলে যে ৩০টি প্রস্তাব অবশ্যই বাস্তবায়িত হবে।</li>
                 </ul>
             </div>
             
             <div style="margin-top: 25px;">
-                <a href="30_Prostab_For_Gonovote2026.pdf" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--primary); color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem; width: 100%; transition: all 0.3s ease; box-shadow: 0 4px 12px var(--glow);">
+                <a href="30_Prostab_For_Gonovote2026.pdf" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--primary); color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem; width: 100%; transition: all 0.3s ease; box-shadow: 0 4px 15px var(--glow);">
                     <i data-lucide="file-text" style="width: 18px; height: 18px;"></i>
                     <span>৩০টি প্রস্তাব দেখুন</span>
                     <i data-lucide="external-link" style="width: 14px; height: 14px; opacity: 0.8;"></i>
@@ -476,17 +476,17 @@
             </div>
         </div>
 
-        <div class="qa-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="qa-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 30px; border-radius: 24px; background: var(--card-bg); border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.02); transition: transform 0.3s ease;">
             <div>
-                <h3>জুলাই জাতীয় সনদ ২০২৫ এ কী আছে?</h3>
+                <h3 style="color: var(--primary); font-size: 1.4rem; margin-bottom: 20px; border-left: 5px solid var(--primary); padding-left: 15px; font-weight: 800;">জুলাই জাতীয় সনদ ২০২৫ এ কী আছে?</h3>
                 <p style="font-family: var(--font-serif); font-size: 1.05rem; line-height: 1.7; color: var(--text-main); text-align: justify;">রাষ্ট্রের সংস্কার ও চরিত্র বদলের জন্য অনেকগুলো গুরুত্বপূর্ণ সুপারিশ রয়েছে, যা বিভিন্ন রাজনৈতিক দল ও জোটের দীর্ঘদিনের আলাপ-আলোচনার মধ্য দিয়ে চূড়ান্ত করা হয়। এটি একটি উন্নত বাংলাদেশের প্রতিশ্রুত অঙ্গীকারনামা।</p>
             </div>
             
             <div style="margin-top: 25px;">
-                <a href="July_Jatiya_Sanad_2025.pdf" target="_blank" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #f3f4f6; border: 2px solid var(--border); color: var(--text-main); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem; width: 100%; transition: all 0.3s ease;">
+                <a href="javascript:void(0)" onclick="scrollToSanad()" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #f3f4f6; border: 2px solid var(--border); color: var(--text-main); padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem; width: 100%; transition: all 0.3s ease; cursor: pointer;">
                     <i data-lucide="book-open" style="width: 18px; height: 18px;"></i>
-                    <span>সম্পূর্ণ সনদটি পড়ুন</span>
-                    <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
+                    <span>সম্পূর্ণ সনদটি পড়ুন</span>
+                    <i data-lucide="arrow-down" style="width: 18px; height: 18px;"></i>
                 </a>
             </div>
         </div>
@@ -593,125 +593,153 @@
         <p>❤️</p>
     </footer>
 
-    <script>
-        // Initialize Icons
+  <script>
+    // Initialize Icons
+    lucide.createIcons();
+    const ballotImageUrl = "GonoVoteBallot.jpg"; 
+
+    const files = [
+        { 
+            title: "জুলাই জাতীয় সনদ ২০২৫", 
+            size: "৮.৩৭১ এমবি", 
+            icon: "scroll", 
+            link: "July_Jatiya_Sanad_2025.pdf", 
+            desc: "রাষ্ট্রের সংস্কার ও চরিত্র বদলের মূল অঙ্গীকারনামা এবং ভবিষ্যতের রূপরেখা।" 
+        },
+        { 
+            title: "বাস্তবায়ন আদেশ ২০২৫", 
+            size: "১৬১ কেবি", 
+            icon: "file-check", 
+            link: "July_Jatiya_Sanad_Bastobayan_Adesh.pdf", 
+            desc: "জুলাই জাতীয় সনদ বাস্তবায়নের প্রশাসনিক নির্দেশাবলী এবং আইনি আদেশ।" 
+        },
+        { 
+            title: "গণভোট অধ্যাদেশ ২০২৫", 
+            size: "২২৭ কেবি", 
+            icon: "shield-check", 
+            link: "Gonovoter_Bidhan_Pronoyon_Kolpe_Oddhadesh.pdf", 
+            desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি এবং বিধিমালা সংক্রান্ত চূড়ান্ত সরকারি অধ্যাদেশ।" 
+        },
+        { 
+            title: "নির্বাচন কমিশন পরিপত্র", 
+            size: "৮০৬ কেবি", 
+            icon: "pen-tool", 
+            link: "Gonovote_Songkranto_Poripotro.pdf", 
+            desc: "গণভোট সংক্রান্ত নির্বাচন কমিশনের বিশেষ নির্দেশনা ও মাঠ পর্যায়ের কর্মকর্তাদের জন্য গাইডলাইন।" 
+        },
+        { 
+            title: "গণভোট ব্যালট পেপার", 
+            size: "৪.২৬৫ এমবি", 
+            icon: "image", 
+            link: "GonoVoteBallot.jpg", 
+            desc: "ভোটারদের সুবিধার্থে গণভোটের গোলাপী রঙের ব্যালট পেপারের চিত্র।" 
+        },
+        { 
+            title: "প্রচারণা লিফলেট (PDF)", 
+            size: "৫৯৮ কেবি", 
+            icon: "megaphone", 
+            link: "leaflet.pdf", 
+            desc: "জনসচেতনতামূলক ডিজিটাল লিফলেট যেখানে সংস্কারের মূল পয়েন্টগুলো সংক্ষেপে তুলে ধরা হয়েছে।" 
+        }
+    ];
+
+    const grid = document.getElementById('fileGrid');
+    
+    function renderFiles() {
+        grid.innerHTML = "";
+        files.forEach(file => {
+            // সনদ কার্ডের জন্য স্পেশাল ID তৈরি
+            const cardId = file.link === "July_Jatiya_Sanad_2025.pdf" ? 'id="sanadCard"' : '';
+            
+            grid.innerHTML += `
+                <div class="card" ${cardId}>
+                    <div class="icon-box"><i data-lucide="${file.icon}" size="20"></i></div>
+                    <div>
+                        <h3 class="card-title">${file.title}</h3>
+                        <p class="card-description">${file.desc}</p>
+                        <p style="font-size: 1.00rem; font-weight: 700; opacity: 0.7; color: var(--primary);">FILE | ${file.size}</p>
+                    </div>
+                    <div class="btn-group">
+                        <a href="${file.link}" target="_blank" class="btn btn-preview" style="font-size: 0.85rem; padding: 5px 10px; display: inline-flex; align-items: center; text-decoration: none;"> 📖 পড়ুন</a>
+                        <a href="${file.link}" download class="btn btn-download" style="font-size: 0.85rem; padding: 5px 10px; display: inline-flex; align-items: center; text-decoration: none;"> 📥 ডাউনলোড করুন</a>
+                    </div>
+                </div>`;
+        });
         lucide.createIcons();
-        const ballotImageUrl = "GonoVoteBallot.jpg"; 
+    }
+    renderFiles();
 
-        const files = [
-            { 
-                title: "জুলাই জাতীয় সনদ ২০২৫", 
-                size: "৮.৩৭১ এমবি", 
-                icon: "scroll", 
-                link: "July_Jatiya_Sanad_2025.pdf", 
-                desc: "রাষ্ট্রের সংস্কার ও চরিত্র বদলের মূল অঙ্গীকারনামা এবং ভবিষ্যতের রূপরেখা।" 
-            },
-            { 
-                title: "বাস্তবায়ন আদেশ ২০২৫", 
-                size: "১৬১ কেবি", 
-                icon: "file-check", 
-                link: "July_Jatiya_Sanad_Bastobayan_Adesh.pdf", 
-                desc: "জুলাই জাতীয় সনদ বাস্তবায়নের প্রশাসনিক নির্দেশাবলী এবং আইনি আদেশ।" 
-            },
-            { 
-                title: "গণভোট অধ্যাদেশ ২০২৫", 
-                size: "২২৭ কেবি", 
-                icon: "shield-check", 
-                link: "Gonovoter_Bidhan_Pronoyon_Kolpe_Oddhadesh.pdf", 
-                desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি এবং বিধিমালা সংক্রান্ত চূড়ান্ত সরকারি অধ্যাদেশ।" 
-            },
-            { 
-                title: "নির্বাচন কমিশন পরিপত্র", 
-                size: "৮০৬ কেবি", 
-                icon: "pen-tool", 
-                link: "Gonovote_Songkranto_Poripotro.pdf", 
-                desc: "গণভোট সংক্রান্ত নির্বাচন কমিশনের বিশেষ নির্দেশনা ও মাঠ পর্যায়ের কর্মকর্তাদের জন্য গাইডলাইন।" 
-            },
-            { 
-                title: "গণভোট ব্যালট পেপার", 
-                size: "৪.২৬৫ এমবি", // Fixed missing quote here
-                icon: "image", 
-                link: "GonoVoteBallot.jpg", 
-                desc: "ভোটারদের সুবিধার্থে গণভোটের গোলাপী রঙের ব্যালট পেপারের চিত্র।" 
-            },
-            { 
-                title: "প্রচারণা লিফলেট (PDF)", 
-                size: "৫৯৮ কেবি", 
-                icon: "megaphone", 
-                link: "leaflet.pdf", 
-                desc: "জনসচেতনতামূলক ডিজিটাল লিফলেট যেখানে সংস্কারের মূল পয়েন্টগুলো সংক্ষেপে তুলে ধরা হয়েছে।" 
-            }
-        ];
+    // স্ক্রল এবং হাইলাইট ফাংশন
+    function scrollToSanad() {
+        const sanadCard = document.getElementById('sanadCard');
+        if (sanadCard) {
+            // কার্ডের কাছে স্ক্রল করা
+            sanadCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-        const grid = document.getElementById('fileGrid');
-        function renderFiles() {
-            grid.innerHTML = "";
-            files.forEach(file => {
-                grid.innerHTML += `
-                    <div class="card">
-                        <div class="icon-box"><i data-lucide="${file.icon}" size="20"></i></div>
-                        <div>
-                            <h3 class="card-title">${file.title}</h3>
-                            <p class="card-description">${file.desc}</p>
-                            <p style="font-size: 1.00rem; font-weight: 700; opacity: 0.7; color: var(--primary);">FILE | ${file.size}</p>
-                        </div>
-                        <div class="btn-group">
-    <a href="${file.link}" target="_blank" class="btn btn-preview" style="font-size: 0.85rem; padding: 5px 10px; display: inline-flex; align-items: center; text-decoration: none;"> 📖 পড়ুন</a>
-    <a href="${file.link}" download class="btn btn-download" style="font-size: 0.85rem; padding: 5px 10px; display: inline-flex; align-items: center; text-decoration: none;"> 📥 ডাউনলোড করুন</a>
-</div>
+            // হাইলাইট ইফেক্ট দেওয়া
+            sanadCard.style.transition = 'all 0.5s ease';
+            sanadCard.style.transform = 'scale(1.05)';
+            sanadCard.style.borderColor = 'var(--primary)';
+            sanadCard.style.boxShadow = '0 0 40px var(--glow)';
+            sanadCard.style.backgroundColor = 'var(--bg)'; // হালকা ব্যাকগ্রাউন্ড পরিবর্তন
 
-                    </div>`;
-            });
-            lucide.createIcons();
+            // ২ সেকেন্ড পর হাইলাইট সরিয়ে আগের অবস্থায় ফিরে আসা
+            setTimeout(() => {
+                sanadCard.style.transform = 'scale(1)';
+                sanadCard.style.borderColor = ''; // ডিফল্টে ফিরে যাবে
+                sanadCard.style.boxShadow = '';
+                sanadCard.style.backgroundColor = '';
+            }, 2000);
         }
-        renderFiles();
+    }
 
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const targetTheme = currentTheme === 'day' ? 'night' : 'day';
-            document.documentElement.setAttribute('data-theme', targetTheme);
-            const icon = document.getElementById('themeIcon');
-            icon.setAttribute('data-lucide', targetTheme === 'day' ? 'moon' : 'sun');
-            lucide.createIcons();
-        }
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const targetTheme = currentTheme === 'day' ? 'night' : 'day';
+        document.documentElement.setAttribute('data-theme', targetTheme);
+        const icon = document.getElementById('themeIcon');
+        icon.setAttribute('data-lucide', targetTheme === 'day' ? 'moon' : 'sun');
+        lucide.createIcons();
+    }
 
-        function openBallot() {
-            const modal = document.getElementById('ballotModal');
-            document.getElementById('ballotImg').src = ballotImageUrl;
-            modal.style.display = "flex";
-            document.body.style.overflow = "hidden";
-        }
-        function closeBallot() {
-            document.getElementById('ballotModal').style.display = "none";
-            document.body.style.overflow = "auto";
-        }
+    function openBallot() {
+        const modal = document.getElementById('ballotModal');
+        document.getElementById('ballotImg').src = ballotImageUrl;
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+    function closeBallot() {
+        document.getElementById('ballotModal').style.display = "none";
+        document.body.style.overflow = "auto";
+    }
 
-        function updateCountdown() {
-            const targetDate = new Date("February 12, 2026 07:30:00").getTime();
+    function updateCountdown() {
+        const targetDate = new Date("February 12, 2026 07:30:00").getTime();
+        
+        function tick() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
             
-            function tick() {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-                
-                if (distance < 0) {
-                    document.querySelector('.timer-section').innerHTML = "<h3 style='color:var(--primary); font-size: 2.5rem; font-weight: 800;'>ভোট গ্রহণ চলছে!</h3>";
-                    return;
-                }
-                
-                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+            if (distance < 0) {
+                document.querySelector('.timer-section').innerHTML = "<h3 style='color:var(--primary); font-size: 2.5rem; font-weight: 800;'>ভোট গ্রহণ চলছে!</h3>";
+                return;
             }
             
-            tick(); 
-            setInterval(tick, 1000);
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
         }
         
-        window.addEventListener('load', updateCountdown);
-    </script>
+        tick(); 
+        setInterval(tick, 1000);
+    }
+    
+    window.addEventListener('load', updateCountdown);
+</script>
 </body>
 </html>
+
 
 
 
