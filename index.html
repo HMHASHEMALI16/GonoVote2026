@@ -633,53 +633,60 @@
         <p>❤️</p>
     </footer>
 
- <script>
+<script>
     // Initialize Icons
     lucide.createIcons();
     const ballotImageUrl = "GonoVoteBallot.jpg"; 
 
+    // Updated File Data with separate Date property for cleaner layout
     const files = [
         { 
             title: "জুলাই জাতীয় সনদ ২০২৫", 
             size: "৮.৩৭১ এমবি", 
             icon: "scroll", 
             link: "July_Jatiya_Sanad_2025.pdf", 
-            desc: "রাষ্ট্রের সংস্কার ও চরিত্র বদলের মূল অঙ্গীকারনামা এবং ভবিষ্যতের রূপরেখা।" 
+            desc: "রাষ্ট্রের সংস্কার ও চরিত্র বদলের মূল অঙ্গীকারনামা এবং ভবিষ্যতের রূপরেখা।",
+            date: "১৭ অক্টোবর, ২০২৫"
         },
         { 
             title: "বাস্তবায়ন আদেশ ২০২৫", 
             size: "১৬১ কেবি", 
             icon: "file-check", 
             link: "July_Jatiya_Sanad_Bastobayan_Adesh.pdf", 
-            desc: "জুলাই জাতীয় সনদ বাস্তবায়নের প্রশাসনিক নির্দেশাবলী এবং আইনি আদেশ।" 
+            desc: "জুলাই জাতীয় সনদ বাস্তবায়নের প্রশাসনিক নির্দেশাবলী এবং আইনি আদেশ।",
+            date: "১৩ নভেম্বর, ২০২৫"
         },
         { 
             title: "গণভোট অধ্যাদেশ ২০২৫", 
             size: "২২৭ কেবি", 
             icon: "shield-check", 
             link: "Gonovoter_Bidhan_Pronoyon_Kolpe_Oddhadesh.pdf", 
-            desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি এবং বিধিমালা সংক্রান্ত চূড়ান্ত সরকারি অধ্যাদেশ।" 
+            desc: "গণভোট অনুষ্ঠানের আইনি ভিত্তি এবং বিধিমালা সংক্রান্ত চূড়ান্ত সরকারি অধ্যাদেশ।",
+            date: "২৫ নভেম্বর, ২০২৫"
         },
         { 
             title: "নির্বাচন কমিশন পরিপত্র", 
             size: "৮০৬ কেবি", 
             icon: "pen-tool", 
             link: "Gonovote_Songkranto_Poripotro.pdf", 
-            desc: "গণভোট সংক্রান্ত নির্বাচন কমিশনের বিশেষ নির্দেশনা ও মাঠ পর্যায়ের কর্মকর্তাদের জন্য গাইডলাইন।" 
+            desc: "গণভোট সংক্রান্ত নির্বাচন কমিশনের বিশেষ নির্দেশনা ও মাঠ পর্যায়ের কর্মকর্তাদের জন্য গাইডলাইন।",
+            date: "১১ ডিসেম্বর, ২০২৫"
         },
         { 
             title: "গণভোট ব্যালট পেপার", 
             size: "৪.২৬৫ এমবি", 
             icon: "image", 
             link: "GonoVoteBallot.jpg", 
-            desc: "ভোটারদের সুবিধার্থে গণভোটের গোলাপী রঙের ব্যালট পেপারের চিত্র।" 
+            desc: "ভোটারদের সুবিধার্থে গণভোটের গোলাপী রঙের ব্যালট পেপারের চিত্র।",
+            date: "১১ ডিসেম্বর, ২০২৫"
         },
         { 
             title: "প্রচারণা লিফলেট (PDF)", 
             size: "৫৯৮ কেবি", 
             icon: "megaphone", 
             link: "leaflet.pdf", 
-            desc: "জনসচেতনতামূলক ডিজিটাল লিফলেট যেখানে সংস্কারের মূল পয়েন্টগুলো সংক্ষেপে তুলে ধরা হয়েছে।" 
+            desc: "জনসচেতনতামূলক ডিজিটাল লিফলেট যেখানে সংস্কারের মূল পয়েন্টগুলো সংক্ষেপে তুলে ধরা হয়েছে。",
+            date: "" // No date for this item
         }
     ];
 
@@ -688,20 +695,25 @@
     function renderFiles() {
         grid.innerHTML = "";
         files.forEach(file => {
-            // সনদ কার্ডের জন্য স্পেশাল ID তৈরি
+            // Create special ID for the Sanad card
             const cardId = file.link === "July_Jatiya_Sanad_2025.pdf" ? 'id="sanadCard"' : '';
             
             grid.innerHTML += `
                 <div class="card" ${cardId}>
                     <div class="icon-box"><i data-lucide="${file.icon}" size="20"></i></div>
-                    <div>
+                    <div class="card-body">
                         <h3 class="card-title">${file.title}</h3>
-                        <p class="card-description">${file.desc}</p>
-                        <p style="font-size: 1.00rem; font-weight: 700; opacity: 0.7; color: var(--primary);">FILE | ${file.size}</p>
+                        <p class="card-description" style="margin-bottom: 12px; line-height: 1.5;">${file.desc}</p>
+                        
+                        ${file.date ? `<p class="card-date" style="font-size: 0.85rem; opacity: 0.8; margin-bottom: 4px;"><strong>প্রকাশ:</strong> ${file.date}</p>` : ''}
+                        
+                        <p style="font-size: 0.9rem; font-weight: 700; opacity: 0.7; color: var(--primary); margin-bottom: 15px;">
+                            FILE | ${file.size}
+                        </p>
                     </div>
-                    <div class="btn-group">
-                        <a href="${file.link}" target="_blank" class="btn btn-preview" style="font-size: 0.85rem; padding: 5px 10px; display: inline-flex; align-items: center; text-decoration: none;"> 📖 পড়ুন</a>
-                        <a href="${file.link}" download class="btn btn-download" style="font-size: 0.85rem; padding: 5px 10px; display: inline-flex; align-items: center; text-decoration: none;"> 📥 ডাউনলোড করুন</a>
+                    <div class="btn-group" style="display: flex; gap: 8px;">
+                        <a href="${file.link}" target="_blank" class="btn btn-preview" style="font-size: 0.85rem; padding: 8px 12px; display: inline-flex; justify-content: center; align-items: center; text-decoration: none; flex: 1;"> 📖 পড়ুন</a>
+                        <a href="${file.link}" download class="btn btn-download" style="font-size: 0.85rem; padding: 8px 12px; display: inline-flex; justify-content: center; align-items: center; text-decoration: none; flex: 1;"> 📥 ডাউনলোড</a>
                     </div>
                 </div>`;
         });
@@ -709,23 +721,23 @@
     }
     renderFiles();
 
-    // স্ক্রল এবং লাল রঙের ফ্ল্যাশ হাইলাইট ফাংশন
+    // Scroll and Red Flash Highlight Function
     function scrollToSanad() {
         const sanadCard = document.getElementById('sanadCard');
         if (sanadCard) {
-            // কার্ডের কাছে স্মুথলি স্ক্রল করা
+            // Smooth scroll to card
             sanadCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // লাল রঙের ফ্ল্যাশ ইফেক্ট দেওয়া
+            // Apply Red Flash Effect
             sanadCard.style.transition = 'all 0.4s ease-in-out';
             sanadCard.style.transform = 'scale(1.03)';
             
-            // লাল বর্ডার এবং ব্যাকগ্রাউন্ড সেট করা (Red Flash)
-            sanadCard.style.borderColor = '#dc2626'; // গাঢ় লাল বর্ডার
-            sanadCard.style.backgroundColor = 'rgba(220, 38, 38, 0.15)'; // হালকা লাল ব্যাকগ্রাউন্ড
-            sanadCard.style.boxShadow = '0 0 35px rgba(220, 38, 38, 0.5)'; // লাল গ্লো
+            // Set Red Border and Background
+            sanadCard.style.borderColor = '#dc2626'; // Dark Red Border
+            sanadCard.style.backgroundColor = 'rgba(220, 38, 38, 0.15)'; // Light Red Background
+            sanadCard.style.boxShadow = '0 0 35px rgba(220, 38, 38, 0.5)'; // Red Glow
 
-            // ১.৫ সেকেন্ড পর ইফেক্ট সরিয়ে আগের অবস্থায় ফিরে আসা
+            // Reset after 1.5 seconds
             setTimeout(() => {
                 sanadCard.style.transform = '';
                 sanadCard.style.borderColor = ''; 
@@ -781,11 +793,6 @@
 </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
