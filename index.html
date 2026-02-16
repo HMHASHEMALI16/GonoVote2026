@@ -599,80 +599,44 @@
         </section>
         <br><br>
 
-
 <section class="result-container">
     <style>
+        /* ফন্ট ইম্পোর্ট */
         @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 
-        /* ১. কালার ভেরিয়েবল সংজ্ঞায়িত করা (Day/Light Mode) */
-        :root {
+        /* লোকাল ভেরিয়েবল - গ্লোবাল ভেরিয়েবলের সাথে ম্যাপ করা হয়েছে */
+        .result-container {
             --vote-red: #dc2626;
             --vote-green: #16a34a;
             
-            /* ডিফল্ট লাইট মোড কালার */
-            --bg-card: #ffffff;
-            --bg-stat-box: #ffffff;
-            --text-title: #2d1b2e;
-            --text-main: #1f2937;
-            --text-muted: #64748b;
-            --text-highlight: #1e293b;
-            --border-color: #ffe4e6;
-            --border-stat: #f1f5f9;
-            --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
-            
-            /* হেডার কালার (ফিক্সড) */
+            /* স্ট্যাট বক্সের হেডার কালার (ফিক্সড) */
             --header-blue: #1e40af;
             --header-sky: #0ea5e9;
             --header-dark: #334155;
-        }
-
-        /* ২. ডার্ক মোড কনফিগারেশন */
-        /* যদি ইউজার সিস্টেম ডার্ক মোড ব্যবহার করে অথবা বডিতে .dark ক্লাস থাকে */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-card: #1e293b;      /* Slate-800 */
-                --bg-stat-box: #0f172a;  /* Slate-900 */
-                --text-title: #f1f5f9;   /* Slate-100 */
-                --text-main: #e2e8f0;    /* Slate-200 */
-                --text-muted: #94a3b8;   /* Slate-400 */
-                --text-highlight: #f8fafc;
-                --border-color: #334155; /* Slate-700 */
-                --border-stat: #334155;
-                --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
-            }
-        }
-
-        /* আপনার ফুল সাইটে যদি ক্লাস ভিত্তিক ডার্ক মোড থাকে */
-        [data-theme="dark"], body.dark {
-            --bg-card: #1e293b;
-            --bg-stat-box: #0f172a;
-            --text-title: #f1f5f9;
-            --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
-            --text-highlight: #f8fafc;
-            --border-color: #334155;
-            --border-stat: #334155;
-            --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+            
+            /* ফন্ট ফ্যামিলি */
+            font-family: 'Hind Siliguri', sans-serif;
         }
 
         .result-container {
             display: flex;
             justify-content: center;
             padding: 20px;
-            font-family: 'Hind Siliguri', 'SolaimanLipi', sans-serif;
         }
 
         .result-card {
-            background: var(--bg-card); /* ভেরিয়েবল ব্যবহার */
+            /* আপনার গ্লোবাল --card-bg ভেরিয়েবল ব্যবহার করা হচ্ছে */
+            background: var(--card-bg); 
             width: 100%;
             max-width: 950px;
             border-radius: 24px;
-            box-shadow: var(--shadow-card);
-            border: 1px solid var(--border-color); /* ভেরিয়েবল ব্যবহার */
+            /* আপনার গ্লোবাল --glow এবং --border ব্যবহার করা হচ্ছে */
+            box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1); 
+            border: 1px solid var(--border);
             padding: 40px;
             position: relative;
             overflow: hidden;
-            transition: background 0.3s ease, border 0.3s ease;
+            transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
         }
 
         /* Decorative blobs */
@@ -684,7 +648,7 @@
             text-align: center;
             font-size: clamp(1.5rem, 4vw, 2.2rem);
             font-weight: 700;
-            color: var(--text-title); /* ভেরিয়েবল ব্যবহার */
+            color: var(--text-main); /* গ্লোবাল টেক্সট কালার */
             margin-bottom: 40px;
             position: relative;
             z-index: 1;
@@ -709,7 +673,7 @@
         }
 
         .vote-label { font-size: 1.5rem; font-weight: 700; display: block; margin-bottom: 5px; }
-        .vote-count { font-size: 1rem; color: var(--text-muted); font-weight: 500; margin-bottom: 5px; } /* মিউটেড টেক্সট */
+        .vote-count { font-size: 1rem; color: var(--text-muted); font-weight: 500; margin-bottom: 5px; } 
         .vote-percent { font-size: 2rem; font-weight: 800; line-height: 1; }
         
         .text-red { color: var(--vote-red); }
@@ -734,14 +698,14 @@
         .chart-inner {
             width: 180px;
             height: 180px;
-            background: var(--bg-card); /* চার্টের ভেতরের রঙ কার্ডের ব্যাকগ্রাউন্ডের সমান হবে */
+            background: var(--card-bg); /* কার্ডের ব্যাকগ্রাউন্ডের সাথে মিল রাখা */
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
-            transition: background 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
         /* Stats Grid Bottom */
@@ -754,14 +718,15 @@
         }
 
         .stat-box {
-            background: var(--bg-stat-box); /* ভেরিয়েবল ব্যবহার */
-            border: 1px solid var(--border-stat); /* ভেরিয়েবল ব্যবহার */
+            /* গ্লোবাল --bg অথবা --qa-card-bg ব্যবহার করা হচ্ছে */
+            background: var(--bg); 
+            border: 1px solid var(--border);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             text-align: center;
             padding-bottom: 15px;
-            transition: background 0.3s ease;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .stat-header {
@@ -783,14 +748,14 @@
         .stat-value {
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--text-main); /* ভেরিয়েবল ব্যবহার */
+            color: var(--text-main);
             padding: 0 10px;
         }
 
         .stat-highlight {
             font-size: 2rem;
             font-weight: 800;
-            color: var(--text-title); /* ভেরিয়েবল ব্যবহার */
+            color: var(--text-main);
         }
 
         /* Action Buttons */
@@ -831,10 +796,11 @@
             border: 2px solid #f59e0b;
             color: #d57706;
         }
-        /* ডার্ক মোডে বাটন টেক্সট */
-        @media (prefers-color-scheme: dark) {
-            .btn-outline-amber { color: #fbbf24; }
+        /* ডার্ক মোড ডিটেকশন (Data Theme দিয়ে) */
+        :root[data-theme="night"] .btn-outline-amber {
+            color: #fbbf24;
         }
+        
         .btn-outline-amber:hover { background: rgba(245, 158, 11, 0.1); transform: translateY(-2px); }
 
         .btn-solid-primary {
@@ -873,7 +839,7 @@
             <div class="chart-wrapper">
                 <div class="chart-inner">
                     <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">মোট বৈধ ভোট</span>
-                    <span style="font-size: 1.4rem; font-weight: 700; color: var(--text-highlight); margin-top: 2px;">৭,০২,৭২,৩৮৬</span>
+                    <span style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-top: 2px;">৭,০২,৭২,৩৮৬</span>
                 </div>
             </div>
 
@@ -910,7 +876,7 @@
         </div>
 
         <div id="action-section" class="action-area">
-            <hr style="border: 0; border-top: 1px dashed var(--border-color); margin: 30px 0;">
+            <hr style="border: 0; border-top: 1px dashed var(--border); margin: 30px 0;">
             
             <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 20px; line-height: 1.6;">
                 গণভোট ২০২৬-এর ফলাফলে <strong class="text-green">‘হ্যাঁ’</strong> ভোট সংখ্যাগরিষ্ঠতা অর্জন করেছে। বিস্তারিত দেখুন বাংলাদেশ নির্বাচন কমিশন এর বিজ্ঞপ্তিতে।
@@ -937,22 +903,17 @@
     </div>
 </section>
 
-<script src="https://unpkg.com/lucide@latest"></script>
-<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-
 <script>
-    // Initialize Icons
-    lucide.createIcons();
-
+    // ইমেজ ডাউনলোডার ফাংশন (থিম ডিটেকশন সহ)
     function downloadAsImage() {
         const element = document.getElementById('capture-target');
         const actionSection = document.getElementById('action-section');
         
-        // ডার্ক মোডে সেভ করার সময় যেন সাদা ব্যাকগ্রাউন্ড না আসে, তাই বর্তমান ব্যাকগ্রাউন্ড কালার ডিটেক্ট করা
+        // বর্তমান ব্যাকগ্রাউন্ড কালার ডিটেক্ট করা (যাতে ডার্ক মোডে কালো এবং লাইট মোডে সাদা ব্যাকগ্রাউন্ড আসে)
         const computedStyle = getComputedStyle(element);
         const currentBgColor = computedStyle.backgroundColor;
 
-        // বাটনগুলো লুকানো
+        // বাটনগুলো লুকানো (ইমেজে যেন না আসে)
         actionSection.style.display = 'none';
         
         // বর্ডার এবং শ্যাডো সাময়িকভাবে সরানো (ক্লিন লুকের জন্য)
@@ -964,7 +925,7 @@
         html2canvas(element, {
             scale: 2, // High Quality
             useCORS: true,
-            backgroundColor: currentBgColor, // এখানে ডাইনামিক কালার ব্যবহার করা হয়েছে
+            backgroundColor: currentBgColor, // ডায়নামিক ব্যাকগ্রাউন্ড
             logging: false
         }).then(canvas => {
             // লেআউট রিস্টোর করা
@@ -979,12 +940,11 @@
             link.click();
         }).catch(err => {
             console.error("Error:", err);
+            // এরর হলেও বাটন যেন ফিরে আসে
             actionSection.style.display = 'block';
         });
     }
 </script>
-        
-
         
 <br><br>
         
@@ -1242,6 +1202,7 @@
 </script>
 </body>
 </html>
+
 
 
 
