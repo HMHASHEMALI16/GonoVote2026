@@ -154,9 +154,47 @@
             font-weight: bold;
         }
 
-        .leaflet-list { list-style: none; display: grid; grid-template-columns: 1fr; gap: 14px; margin-bottom: 40px; }
-        .leaflet-item { display: flex; align-items: flex-start; gap: 15px; padding: 16px 20px; background: var(--bullet-bg); border-radius: 16px; border-left: 5px solid var(--primary); font-family: var(--font-serif); font-size: 1.05rem; }
-        .leaflet-item i { color: var(--primary); flex-shrink: 0; margin-top: 4px; }
+        /* নতুন ডিজাইন কোড */
+.leaflet-list { 
+    list-style: none; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 18px; 
+    margin-bottom: 40px; 
+}
+
+.leaflet-item { 
+    display: flex; 
+    align-items: center; /* লেখা এবং আইকন মাঝখানে থাকবে */
+    gap: 18px; 
+    padding: 10px 15px; 
+    background: var(--card-bg); 
+    border-radius: 50px; /* ছবির মতো পিল শেপ বা গোললগাল */
+    border: 1px solid var(--border);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* নিচে শ্যাডো */
+    font-family: var(--font-serif); 
+    font-size: 1.05rem; 
+    transition: all 0.3s ease;
+}
+
+.leaflet-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--glow);
+    border-color: var(--primary);
+}
+
+.leaflet-item i { 
+    background: linear-gradient(135deg, var(--primary), #ff6b6b); /* আইকনের ব্যাকগ্রাউন্ড কালার */
+    color: white; /* আইকনের রং সাদা */
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* আইকনটি গোল বৃত্তের মধ্যে থাকবে */
+    flex-shrink: 0; 
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4);
+}
 
         /* CTA সেকশন */
         .cta-final { margin-top: 40px; text-align: center; border-top: 2px dashed var(--border); padding-top: 35px; }
@@ -1029,6 +1067,7 @@
 </script>
 </body>
 </html>
+
 
 
 
