@@ -598,11 +598,11 @@
             </div>
         </section>
         <br><br>
-
 <section class="result-container">
     <style>
-        /* ফন্ট ইম্পোর্ট */
-     
+        /* 1. Google Font Import: Noto Serif Bengali */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700;800&display=swap');
+
         /* লোকাল ভেরিয়েবল - গ্লোবাল ভেরিয়েবলের সাথে ম্যাপ করা হয়েছে */
         .result-container {
             --vote-red: #dc2626;
@@ -613,8 +613,8 @@
             --header-sky: #0ea5e9;
             --header-dark: #334155;
             
-            /* ফন্ট ফ্যামিলি */
-            font-family: 'Hind Siliguri', sans-serif;
+            /* 2. ফন্ট ফ্যামিলি আপডেট করা হয়েছে (Serif) */
+            font-family: 'Noto Serif Bengali', serif;
         }
 
         .result-container {
@@ -738,6 +738,8 @@
             gap: 8px;
             font-size: 0.95rem;
             margin-bottom: 15px;
+            /* Header font can remain slightly simpler or inherit the serif */
+            font-family: 'Noto Serif Bengali', serif; 
         }
 
         .bg-blue { background: var(--header-blue); }
@@ -788,6 +790,9 @@
             height: 54px; 
             min-width: 220px; 
             box-sizing: border-box;
+            /* Buttons often look better in sans-serif even if main text is serif, 
+               but here I kept it serif to match your request. 
+               To make buttons sans-serif, add font-family: sans-serif here. */
         }
 
         .btn-outline-amber {
@@ -915,7 +920,7 @@
         // বাটনগুলো লুকানো (ইমেজে যেন না আসে)
         actionSection.style.display = 'none';
         
-        // বর্ডার এবং শ্যাডো সাময়িকভাবে সরানো (ক্লিন লুকের জন্য)
+        // বর্ডার এবং শ্যাডো সাময়িকভাবে সরানো (ক্লিন লুকের জন্য)
         const originalShadow = element.style.boxShadow;
         const originalBorder = element.style.border;
         element.style.boxShadow = 'none';
@@ -1201,6 +1206,7 @@
 </script>
 </body>
 </html>
+
 
 
 
