@@ -586,20 +586,20 @@
         margin-bottom: 40px;
     }
 
-    .chart-wrapper {
-        position: relative;
-        width: 280px;
-        height: 280px;
-        border-radius: 50%;
-        background: conic-gradient(
-            #dc2626 0% 31.41%,  /* না - লাল */
-            #16a34a 31.41% 100% /* হ্যাঁ - সবুজ */
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
+   .chart-wrapper {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    
+    /* এই নিচের লাইনটি পরিবর্তন করা হয়েছে */
+    background: conic-gradient(from 250deg, #dc2626 0% 31.41%, #16a34a 31.41% 100%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 
     .chart-inner {
         width: 70%;
@@ -1029,6 +1029,7 @@
 </script>
 </body>
 </html>
+
 
 
 
