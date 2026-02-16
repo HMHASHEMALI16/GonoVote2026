@@ -320,6 +320,8 @@
             .qa-container { grid-template-columns: 1fr; margin-bottom: 40px; }
         }
     </style>
+
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -810,6 +812,66 @@
         </div>
 
     </div>
+    <div style="text-align: center;" id="action-section">
+    <p style="font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-main); opacity: 0.9; margin-bottom: 25px; line-height: 1.7;">
+        গণভোট ২০২৬-এর ফলাফলে <strong class="text-green">‘হ্যাঁ’</strong> ভোট সংখ্যাগরিষ্ঠতা অর্জন করেছে। বিস্তারিত দেখুন বাংলাদেশ নির্বাচন কমিশন এর বিজ্ঞপ্তিতে।
+    </p>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px; margin-top: 10px;">
+        
+        <a href="https://hmhashemali16.github.io/GonoVote2026/Gonovote_Er_Folafol.pdf" 
+           download="GonoVote_Result_2026.pdf"
+           style="display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 2px solid #f59e0b; color: #d97706; padding: 12px 24px; border-radius: 50px; font-weight: 700; text-decoration: none; transition: all 0.2s ease;"
+           onmouseover="this.style.background='#fffbeb'; this.style.transform='translateY(-2px)'" 
+           onmouseout="this.style.background='#fff'; this.style.transform='translateY(0)'">
+            <i data-lucide="download" width="18"></i> ডাউনলোড
+        </a>
+
+        <a href="https://hmhashemali16.github.io/GonoVote2026/Gonovote_Er_Folafol.pdf" 
+           target="_blank" 
+           style="display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: white; padding: 16px 40px; border-radius: 50px; font-weight: 700; font-size: 1.15rem; text-decoration: none; box-shadow: 0 10px 25px var(--glow); transition: transform 0.2s ease; border: 2px solid transparent;"
+           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 15px 35px var(--glow)';" 
+           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 10px 25px var(--glow)';">
+            <i data-lucide="eye"></i>
+            বিজ্ঞপ্তি দেখুন
+        </a>
+
+        <button onclick="downloadAsImage()" 
+           style="display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 2px solid #16a34a; color: #16a34a; padding: 12px 24px; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 1rem; transition: all 0.2s ease;"
+           onmouseover="this.style.background='#f0fdf4'; this.style.transform='translateY(-2px)'" 
+           onmouseout="this.style.background='#fff'; this.style.transform='translateY(0)'">
+            <i data-lucide="image" width="18"></i> সেভ করুন
+        </button>
+    </div>
+</div>
+
+<script>
+    function downloadAsImage() {
+        const element = document.querySelector('.result-card'); // Target the card
+        const buttons = document.querySelector('#action-section'); // Target buttons to hide them
+
+        // Temporarily hide buttons for the screenshot
+        buttons.style.visibility = 'hidden'; 
+
+        html2canvas(element, {
+            scale: 2, // High resolution
+            useCORS: true,
+            backgroundColor: "#ffffff"
+        }).then(canvas => {
+            // Show buttons again
+            buttons.style.visibility = 'visible';
+
+            // Trigger download
+            const link = document.createElement('a');
+            link.download = 'Result_2026.jpg';
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.click();
+        }).catch(err => {
+            console.error("Error saving image:", err);
+            buttons.style.visibility = 'visible'; // Show buttons if error occurs
+        });
+    }
+</script>
 </section>
 <br><br>
         
@@ -1067,6 +1129,7 @@
 </script>
 </body>
 </html>
+
 
 
 
