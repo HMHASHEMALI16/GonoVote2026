@@ -600,36 +600,27 @@
         <br><br>
 <section class="result-container">
     <style>
-        /* 1. Google Font Import: Noto Serif Bengali */
         @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;500;600;700;800&display=swap');
 
-        /* লোকাল ভেরিয়েবল - গ্লোবাল ভেরিয়েবলের সাথে ম্যাপ করা হয়েছে */
         .result-container {
             --vote-red: #dc2626;
             --vote-green: #16a34a;
-            
-            /* স্ট্যাট বক্সের হেডার কালার (ফিক্সড) */
             --header-blue: #1e40af;
             --header-sky: #0ea5e9;
             --header-dark: #334155;
-            
-            /* 2. ফন্ট ফ্যামিলি আপডেট করা হয়েছে (Serif) */
             font-family: 'Noto Serif Bengali', serif;
-        }
-
-        .result-container {
             display: flex;
             justify-content: center;
             padding: 20px;
+            flex-direction: column;
+            align-items: center;
         }
 
         .result-card {
-            /* আপনার গ্লোবাল --card-bg ভেরিয়েবল ব্যবহার করা হচ্ছে */
             background: var(--card-bg); 
             width: 100%;
             max-width: 950px;
             border-radius: 24px;
-            /* আপনার গ্লোবাল --glow এবং --border ব্যবহার করা হচ্ছে */
             box-shadow: 0 10px 30px -5px rgba(0,0,0,0.1); 
             border: 1px solid var(--border);
             padding: 40px;
@@ -638,7 +629,24 @@
             transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Decorative blobs */
+        /* Revised Badge */
+        .revised-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: rgba(22, 163, 74, 0.15);
+            border: 1.5px solid var(--vote-green);
+            color: var(--vote-green);
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin: 0 auto 20px;
+            width: fit-content;
+            font-family: var(--font-sans);
+        }
+
         .blob { position: absolute; border-radius: 50%; opacity: 0.05; z-index: 0; pointer-events: none; }
         .blob-green { top: -50px; right: -50px; width: 150px; height: 150px; background: var(--vote-green); }
         .blob-red { bottom: -50px; left: -50px; width: 120px; height: 120px; background: var(--vote-red); }
@@ -647,13 +655,12 @@
             text-align: center;
             font-size: clamp(1.5rem, 4vw, 2.2rem);
             font-weight: 700;
-            color: var(--text-main); /* গ্লোবাল টেক্সট কালার */
+            color: var(--text-main);
             margin-bottom: 40px;
             position: relative;
             z-index: 1;
         }
 
-        /* Chart Section Layout */
         .chart-layout {
             display: flex;
             flex-wrap: wrap;
@@ -665,12 +672,7 @@
             z-index: 1;
         }
 
-        .vote-stat-side {
-            text-align: center;
-            flex: 1;
-            min-width: 200px;
-        }
-
+        .vote-stat-side { text-align: center; flex: 1; min-width: 200px; }
         .vote-label { font-size: 1.5rem; font-weight: 700; display: block; margin-bottom: 5px; }
         .vote-count { font-size: 1rem; color: var(--text-muted); font-weight: 500; margin-bottom: 5px; } 
         .vote-percent { font-size: 2rem; font-weight: 800; line-height: 1; }
@@ -678,15 +680,15 @@
         .text-red { color: var(--vote-red); }
         .text-green { color: var(--vote-green); }
 
-        /* Donut Chart */
+        /* Updated Chart for 68.26% and 31.74% */
         .chart-wrapper {
             position: relative;
             width: 260px;
             height: 260px;
             border-radius: 50%;
             background: conic-gradient(
-                var(--vote-red) 0% 31.41%, 
-                var(--vote-green) 31.41% 100%
+                var(--vote-red) 0% 31.74%, 
+                var(--vote-green) 31.74% 100%
             );
             display: flex;
             align-items: center;
@@ -697,7 +699,7 @@
         .chart-inner {
             width: 180px;
             height: 180px;
-            background: var(--card-bg); /* কার্ডের ব্যাকগ্রাউন্ডের সাথে মিল রাখা */
+            background: var(--card-bg);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
@@ -707,7 +709,6 @@
             transition: background-color 0.3s ease;
         }
 
-        /* Stats Grid Bottom */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -717,7 +718,6 @@
         }
 
         .stat-box {
-            /* গ্লোবাল --bg অথবা --qa-card-bg ব্যবহার করা হচ্ছে */
             background: var(--bg); 
             border: 1px solid var(--border);
             border-radius: 12px;
@@ -738,119 +738,120 @@
             gap: 8px;
             font-size: 0.95rem;
             margin-bottom: 15px;
-            /* Header font can remain slightly simpler or inherit the serif */
-            font-family: 'Noto Serif Bengali', serif; 
         }
 
         .bg-blue { background: var(--header-blue); }
         .bg-sky { background: var(--header-sky); }
         .bg-dark { background: var(--header-dark); }
 
-        .stat-value {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-main);
-            padding: 0 10px;
-        }
+        .stat-value { font-size: 1.1rem; font-weight: 600; color: var(--text-main); padding: 0 10px; }
+        .stat-highlight { font-size: 2rem; font-weight: 800; color: var(--text-main); }
 
-        .stat-highlight {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--text-main);
-        }
-
-        /* Action Buttons */
-        .action-area {
-            text-align: center;
-            margin-top: 30px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .action-buttons-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
+        .action-area { text-align: center; margin-top: 30px; position: relative; z-index: 2; }
+        .action-buttons-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
 
         .action-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 24px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            height: 54px; 
-            min-width: 220px; 
-            box-sizing: border-box;
-            /* Buttons often look better in sans-serif even if main text is serif, 
-               but here I kept it serif to match your request. 
-               To make buttons sans-serif, add font-family: sans-serif here. */
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            padding: 14px 24px; border-radius: 50px; font-size: 1rem; font-weight: 700;
+            text-decoration: none; cursor: pointer; transition: all 0.2s ease;
+            height: 54px; min-width: 220px; box-sizing: border-box; font-family: var(--font-sans);
         }
 
-        .btn-outline-amber {
-            background: transparent;
-            border: 2px solid #f59e0b;
-            color: #d57706;
-        }
-        /* ডার্ক মোড ডিটেকশন (Data Theme দিয়ে) */
-        :root[data-theme="night"] .btn-outline-amber {
-            color: #fbbf24;
-        }
-        
+        .btn-outline-amber { background: transparent; border: 2px solid #f59e0b; color: #d57706; }
+        :root[data-theme="night"] .btn-outline-amber { color: #fbbf24; }
         .btn-outline-amber:hover { background: rgba(245, 158, 11, 0.1); transform: translateY(-2px); }
 
-        .btn-solid-primary {
-            background: var(--header-blue);
-            border: 2px solid var(--header-blue);
-            color: white;
-            box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
-        }
+        .btn-solid-primary { background: var(--header-blue); border: 2px solid var(--header-blue); color: white; box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3); }
         .btn-solid-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(30, 64, 175, 0.4); }
 
-        .btn-outline-green {
-            background: transparent;
-            border: 2px solid var(--vote-green);
-            color: var(--vote-green);
-        }
+        .btn-outline-green { background: transparent; border: 2px solid var(--vote-green); color: var(--vote-green); }
         .btn-outline-green:hover { background: rgba(22, 163, 74, 0.1); transform: translateY(-2px); }
 
-        @media print {
-            .action-area { display: none !important; }
+        /* Shutter Styles */
+        .shutter-container {
+            width: 100%;
+            max-width: 950px;
+            margin-top: 25px;
+            font-family: var(--font-sans);
         }
+        
+        .shutter-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(220, 38, 38, 0.05);
+            border: 2px dashed #fca5a5;
+            border-radius: 16px;
+            padding: 16px 24px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #dc2626;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .shutter-btn:hover { background: rgba(220, 38, 38, 0.1); }
+        .shutter-btn .icon-arrow { transition: transform 0.3s; }
+        .shutter-btn.active { border-radius: 16px 16px 0 0; border-bottom: none; }
+        .shutter-btn.active .icon-arrow { transform: rotate(180deg); }
+
+        .shutter-content {
+            display: none;
+            background: var(--card-bg);
+            border: 2px dashed #fca5a5;
+            border-top: none;
+            border-radius: 0 0 16px 16px;
+            padding: 24px;
+            animation: slideDown 0.3s ease-out;
+        }
+        
+        .shutter-content.show { display: block; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .old-data-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+        .old-data-row:last-child { border-bottom: none; }
+        .old-label { color: var(--text-muted); }
+        .old-value { font-weight: 700; }
+
+        @media print { .action-area, .shutter-container { display: none !important; } }
     </style>
 
     <div class="result-card" id="capture-target">
         <div class="blob blob-green"></div>
         <div class="blob blob-red"></div>
 
+        <div class="revised-badge">
+            <i data-lucide="check-circle" width="16"></i> সংশোধিত চূড়ান্ত ফলাফল
+        </div>
+
         <h2 class="title">২০২৬: চতুর্থ জাতীয় গণভোটের ফলাফল</h2>
 
         <div class="chart-layout">
            <div class="vote-stat-side">
                 <span class="vote-label text-green">‘হ্যাঁ’</span>
-                <div class="vote-count">৪,৮২,০০,৬৬০ ভোট</div>
-                <div class="vote-percent text-green">৬৮.৫৯%</div>
+                <div class="vote-count">৪,৭২,২৫,৯৮০ ভোট</div>
+                <div class="vote-percent text-green">৬৮.২৬%</div>
             </div>
 
             <div class="chart-wrapper">
                 <div class="chart-inner">
                     <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted);">মোট বৈধ ভোট</span>
-                    <span style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-top: 2px;">৭,০২,৭২,৩৮৬</span>
+                    <span style="font-size: 1.4rem; font-weight: 700; color: var(--text-main); margin-top: 2px;">৬,৯১,৮৬,২১১</span>
                 </div>
             </div>
 
              <div class="vote-stat-side">
                 <span class="vote-label text-red">‘না’</span>
-                <div class="vote-count">২,২০,৭১,৭২৬ ভোট</div>
-                <div class="vote-percent text-red">৩১.৪১%</div>
+                <div class="vote-count">২,১৯,৬০,২৩১ ভোট</div>
+                <div class="vote-percent text-red">৩১.৭৪%</div>
             </div>
             
         </div>
@@ -861,21 +862,21 @@
                     <i data-lucide="users" width="18"></i> ভোটার তথ্য
                 </div>
                 <div class="stat-value" style="margin-bottom: 5px;">মোট নিবন্ধিত: ১২,৭৭,১১,৭৯৩</div>
-                <div class="stat-value">অংশগ্রহণকারী: ৭,৭৬,৯৫,০২৩</div>
+                <div class="stat-value">অংশগ্রহণকারী: ৭,৬৬,২১,৪০৭</div>
             </div>
 
             <div class="stat-box">
                 <div class="stat-header bg-sky">
                     <i data-lucide="gauge" width="18"></i> অংশগ্রহণের হার
                 </div>
-                <div class="stat-highlight">৬০.৮৩%</div>
+                <div class="stat-highlight">৬০.০০%</div>
             </div>
 
             <div class="stat-box">
                 <div class="stat-header bg-dark">
                     <i data-lucide="archive-x" width="18"></i> ভোটের স্থিতি
                 </div>
-                <div class="stat-value" style="margin-top: 10px;">বাতিলকৃত ভোট: ৭৪,২২,৬৩৭</div>
+                <div class="stat-value" style="margin-top: 10px;">বাতিলকৃত ভোট: ৭৪,৩৫,১৯৬</div>
             </div>
         </div>
 
@@ -883,17 +884,17 @@
             <hr style="border: 0; border-top: 1px dashed var(--border); margin: 30px 0;">
             
             <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 20px; line-height: 1.6;">
-                গণভোট ২০২৬-এর ফলাফলে <strong class="text-green">‘হ্যাঁ’</strong> ভোট সংখ্যাগরিষ্ঠতা অর্জন করেছে। বিস্তারিত দেখুন বাংলাদেশ নির্বাচন কমিশন এর বিজ্ঞপ্তিতে।
+                গণভোট ২০২৬-এর <strong class="text-green">সংশোধিত ফলাফলে</strong> ‘হ্যাঁ’ ভোট সংখ্যাগরিষ্ঠতা অর্জন করেছে। বিস্তারিত দেখুন বাংলাদেশ নির্বাচন কমিশন এর বিজ্ঞপ্তিতে।
             </p>
 
             <div class="action-buttons-grid">
-                <a href="https://hmhashemali16.github.io/GonoVote2026/Gonovote_Er_Folafol.pdf" 
-                   download="GonoVote_Result_2026.pdf"
+                <a href="https://hmhashemali16.github.io/GonoVote2026/Gonovote_Er_Songshodhito_Folafol.pdf" 
+                   download="GonoVote_Revised_Result_2026.pdf"
                    class="action-btn btn-outline-amber">
                    <i data-lucide="download" width="20"></i> বিজ্ঞপ্তি ডাউনলোড
                 </a>
 
-                <a href="https://hmhashemali16.github.io/GonoVote2026/Gonovote_Er_Folafol.pdf" 
+                <a href="https://hmhashemali16.github.io/GonoVote2026/Gonovote_Er_Songshodhito_Folafol.pdf" 
                    target="_blank"
                    class="action-btn btn-solid-primary">
                    <i data-lucide="eye" width="20"></i> ফলাফলের বিজ্ঞপ্তি দেখুন
@@ -905,8 +906,79 @@
             </div>
         </div>
     </div>
-</section>
 
+    <div class="shutter-container">
+        <button class="shutter-btn" onclick="toggleOldResult(this)">
+            <span>⚠️ পূর্বে প্রকাশিত (ত্রুটিপূর্ণ) ফলাফল দেখুন</span>
+            <i data-lucide="chevron-down" class="icon-arrow" width="24"></i>
+        </button>
+        <div id="oldResultPanel" class="shutter-content">
+            <div style="background: rgba(220, 38, 38, 0.05); padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; color: #dc2626; font-weight: 700; border: 1px solid #fca5a5;">
+                এই ফলাফলটিতে করণিক ত্রুটি ধরা পড়েছিল, যা পরবর্তীতে সংশোধনী বিজ্ঞপ্তির মাধ্যমে সংশোধন করা হয়েছে।
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
+                <div style="text-align: center; padding: 15px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px;">
+                    <div style="color: var(--vote-green); font-size: 1.2rem; font-weight: 800;">'হ্যাঁ' - ৬৮.৫৯%</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">৪,৮২,০০,৬৬০ ভোট</div>
+                </div>
+                <div style="text-align: center; padding: 15px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px;">
+                    <div style="color: var(--vote-red); font-size: 1.2rem; font-weight: 800;">'না' - ৩১.৪১%</div>
+                    <div style="color: var(--text-muted); font-size: 0.9rem; margin-top: 5px;">২,২০,৭১,৭২৬ ভোট</div>
+                </div>
+            </div>
+
+            <div class="old-data-row"><span class="old-label">মোট বৈধ ভোট</span><span class="old-value">৭,০২,৭২,৩৮৬</span></div>
+            <div class="old-data-row"><span class="old-label">অংশগ্রহণকারী</span><span class="old-value">৭,৭৬,৯৫,০২৩</span></div>
+            <div class="old-data-row"><span class="old-label">অংশগ্রহণের হার</span><span class="old-value">৬০.৮৩%</span></div>
+            <div class="old-data-row"><span class="old-label">বাতিলকৃত ভোট</span><span class="old-value">৭৪,২২,৬৩৭</span></div>
+        </div>
+    </div>
+
+    <script>
+        // Image Downloader Function (with Theme Detection)
+        function downloadAsImage() {
+            const element = document.getElementById('capture-target');
+            const actionSection = document.getElementById('action-section');
+            
+            const computedStyle = getComputedStyle(element);
+            const currentBgColor = computedStyle.backgroundColor;
+
+            actionSection.style.display = 'none';
+            
+            const originalShadow = element.style.boxShadow;
+            const originalBorder = element.style.border;
+            element.style.boxShadow = 'none';
+            element.style.border = 'none';
+
+            html2canvas(element, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: currentBgColor, 
+                logging: false
+            }).then(canvas => {
+                actionSection.style.display = 'block';
+                element.style.boxShadow = originalShadow;
+                element.style.border = originalBorder;
+
+                const link = document.createElement('a');
+                link.download = 'GonoVote_Revised_Result_2026.jpg';
+                link.href = canvas.toDataURL('image/jpeg', 0.9);
+                link.click();
+            }).catch(err => {
+                console.error("Error:", err);
+                actionSection.style.display = 'block';
+            });
+        }
+
+        // Shutter Toggle Function
+        function toggleOldResult(btn) {
+            const panel = document.getElementById('oldResultPanel');
+            panel.classList.toggle('show');
+            btn.classList.toggle('active');
+        }
+    </script>
+</section>
 <script>
     // ইমেজ ডাউনলোডার ফাংশন (থিম ডিটেকশন সহ)
     function downloadAsImage() {
