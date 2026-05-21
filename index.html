@@ -38,6 +38,10 @@
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ffffff">
+    
 </head>
 <body>
 
@@ -425,5 +429,19 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(registration => {
+          console.log('Service Worker registered!');
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    });
+  }
+    </script>
+    
 </body>
 </html>
