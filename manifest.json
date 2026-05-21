@@ -1,0 +1,15 @@
+{
+  "name": "গণভোট ২০২৬",
+  "short_name": "GonoVote",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "Icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
