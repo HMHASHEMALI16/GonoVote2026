@@ -1,6 +1,6 @@
 # 🗳️ Gono Vote 2026
 
-### [🌐 Visit the Digital Archive](https://hmhashemali16.github.io/GonoVote2026/)
+### [hmhashemali16.github.io/GonoVote2026](https://hmhashemali16.github.io/GonoVote2026/)
 **Direct Link:** `hmhashemali16.github.io/GonoVote2026`
 
 ---
